@@ -11,4 +11,11 @@ public class Validacion {
             Toolkit.getDefaultToolkit().beep();
         }
     }
+    public void soloLetra(java.awt.event.KeyEvent evt){
+        int car = evt.getKeyChar();
+        if((car < 'A' || car > 'z') && car !=' '){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }
     }
