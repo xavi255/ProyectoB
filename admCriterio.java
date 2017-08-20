@@ -26,6 +26,22 @@ Conexion conexion = new Conexion();
             JOptionPane.showMessageDialog(null, ex);
       }
     }
+    public void llenaCombo(JComboBox combo) {
+     combo.removeAllItems();
+        try {
+            Connection conex = Conexion.getConexion();
+            String sql = "SELECT id_criterio, nombre_criterio FROM tCriterio";
+            PreparedStatement ps = conex.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Combo objC = new Combo(rs.getInt(1), rs.getString(2));
+                combo.addItem(objC);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
     }
     
 
